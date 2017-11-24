@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/cdproject/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/cdproject/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/cdproject/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/cdproject/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/cdproject/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/cdproject/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/cdproject/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1期数据库设计参考">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库参考字段设计">
+<meta property="og:url" content="http://yiyixiaozhi.gitee.io/2017/11/21/2017/数据库参考字段/index.html">
+<meta property="og:site_name" content="成都干部网络学院">
+<meta property="og:description" content="1期数据库设计参考">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-23T08:05:18.471Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库参考字段设计">
+<meta name="twitter:description" content="1期数据库设计参考">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/cdproject/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yiyixiaozhi.gitee.io/2017/11/21/2017/数据库参考字段/"/>
+
+
+
+
+
+  <title>数据库参考字段设计 | 成都干部网络学院</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/cdproject/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">成都干部网络学院</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">文档收集站</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/cdproject/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/cdproject/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/cdproject/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/cdproject/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yiyixiaozhi.gitee.io/cdproject/2017/11/21/2017/数据库参考字段/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="无">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/cdproject/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="成都干部网络学院">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据库参考字段设计</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T19:23:42+08:00">
+                2017-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  1期数据库设计参考
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h1><ul>
+<li>用户名</li>
+<li>密码</li>
+<li>姓名</li>
+<li>手机号码</li>
+<li>Email</li>
+<li>证件类型<br>身份证、军官证</li>
+<li>证件号码</li>
+<li>出生日期</li>
+<li>民族</li>
+<li>职务</li>
+<li>参加工作时间</li>
+<li>单位</li>
+<li>办公电话</li>
+<li>传真</li>
+<li>性别</li>
+<li>政治面貌<br>中共党员、预备党员、共青团员、民主党派、无党派、群众、其他</li>
+<li>籍贯</li>
+<li>职级<br>省部级正职、省部级副职、厅局级正职、巡视员、厅局级副职、副巡视员、县处级正职、调研员、县处级副职、副调研员、乡科级正职、主任科员、- 乡科级副职、副主任科员、办事员、其他</li>
+<li>入党时间</li>
+<li>工作地点</li>
+</ul>
+<h1 id="线上课程"><a href="#线上课程" class="headerlink" title="线上课程"></a>线上课程</h1><ul>
+<li>名称</li>
+<li>简介</li>
+<li>主讲人</li>
+<li>主讲人简介</li>
+<li>课程缩略图地址</li>
+<li>课程图片地址</li>
+<li>时长</li>
+<li>学时</li>
+<li>点赞数</li>
+<li>是否上线</li>
+<li>课程标签ID</li>
+<li>课程类型</li>
+<li>课程标签</li>
+<li>选课日期</li>
+<li>上传时间</li>
+<li>知识标签</li>
+<li>课程来源</li>
+</ul>
+<h1 id="线下课程"><a href="#线下课程" class="headerlink" title="线下课程"></a>线下课程</h1><ul>
+<li>名称</li>
+<li>主讲人</li>
+<li>学时</li>
+<li>课程分类</li>
+</ul>
+<h1 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h1><ul>
+<li>名称</li>
+<li>上级平台</li>
+<li>层级号</li>
+<li>类型<br>平台、单位</li>
+</ul>
+<h1 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h1><ul>
+<li>名称</li>
+<li>描述</li>
+</ul>
+<h1 id="课程专题"><a href="#课程专题" class="headerlink" title="课程专题"></a>课程专题</h1><ul>
+<li>名称</li>
+<li>缩略图地址</li>
+<li>专题说明</li>
+<li>专题角标文字<br>4个字以内</li>
+</ul>
+<h1 id="专题推送记录"><a href="#专题推送记录" class="headerlink" title="专题推送记录"></a>专题推送记录</h1><ul>
+<li>专题ID</li>
+<li>班级ID</li>
+<li>推送时间</li>
+</ul>
+<h1 id="班级"><a href="#班级" class="headerlink" title="班级"></a>班级</h1><ul>
+<li>名称</li>
+<li>开始时间</li>
+<li>结束时间</li>
+<li>培训天数</li>
+<li>学员人数</li>
+<li>学习进度（百分比）</li>
+<li>简介</li>
+<li>班主任用户ID</li>
+<li>承接单位<br>？承接单位是不是在总平台中，这个需要跟康老师确认。</li>
+<li>必修课程IDList</li>
+<li>选修课程IDList</li>
+<li>必修课学时汇总（小时</li>
+<li>选修课学时汇总（小时）</li>
+<li>所属平台ID</li>
+</ul>
+<h1 id="班级审核记录"><a href="#班级审核记录" class="headerlink" title="班级审核记录"></a>班级审核记录</h1><ul>
+<li>发起人</li>
+<li>发起时间</li>
+<li>发起意见</li>
+<li>审核人</li>
+<li>审核时间</li>
+<li>审核意见</li>
+<li>审核状态<br>标注<br>标注</li>
+</ul>
+<h1 id="单位"><a href="#单位" class="headerlink" title="单位"></a>单位</h1><ul>
+<li>名称</li>
+<li>说明</li>
+<li>单位类型<br>1级平台（1级）、2级平台（2级）、单位（3级）、部门（4级及以下）</li>
+<li>上级单位ID</li>
+</ul>
+<h1 id="学习档案"><a href="#学习档案" class="headerlink" title="学习档案"></a>学习档案</h1><ul>
+<li>班级ID</li>
+<li>考试记录ID</li>
+<li>学员ID</li>
+<li>课程ID</li>
+<li>培训方式<br>线上、线下</li>
+<li>培训终端<br>手机、PC</li>
+<li>获得学时</li>
+<li>获得学时时间</li>
+</ul>
+<h1 id="考试记录"><a href="#考试记录" class="headerlink" title="考试记录"></a>考试记录</h1><ul>
+<li>试卷ID</li>
+<li>用户ID</li>
+<li>班级ID</li>
+<li>考试时间</li>
+<li>试卷得分</li>
+</ul>
+<h1 id="用户行为"><a href="#用户行为" class="headerlink" title="用户行为"></a>用户行为</h1><ul>
+<li>类型<ul>
+<li>登录、退出、查看课程</li>
+</ul>
+</li>
+<li>事项ID</li>
+<li>时间</li>
+</ul>
+<h1 id="人员调动记录"><a href="#人员调动记录" class="headerlink" title="人员调动记录"></a>人员调动记录</h1><ul>
+<li>用户ID</li>
+<li>原单位ID</li>
+<li>新单位ID</li>
+<li>原单位职务</li>
+<li>新单位职务</li>
+<li>调岗时间</li>
+<li>是否离退</li>
+</ul>
+<h1 id="用户与角色"><a href="#用户与角色" class="headerlink" title="用户与角色"></a>用户与角色</h1><p>用户和角色对应关系表。一个用户可以对应多个角色。</p>
+<ul>
+<li>用户ID</li>
+<li>角色ID</li>
+</ul>
+<h1 id="角色-1"><a href="#角色-1" class="headerlink" title="角色"></a>角色</h1><ul>
+<li>学员</li>
+<li>班主任</li>
+<li>平台管理员</li>
+</ul>
+<h1 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h1><h1 id="角色与权限"><a href="#角色与权限" class="headerlink" title="角色与权限"></a>角色与权限</h1><ul>
+<li>角色ID</li>
+<li>权限ID</li>
+</ul>
+<h1 id="班级分组"><a href="#班级分组" class="headerlink" title="班级分组"></a>班级分组</h1><ul>
+<li>名称</li>
+<li>班级ID</li>
+</ul>
+<h1 id="用户与班级"><a href="#用户与班级" class="headerlink" title="用户与班级"></a>用户与班级</h1><p>一个用户对应多个班级，在每一个班级中存在于一个分钟中。<br>此表也是学员分配记录表</p>
+<ul>
+<li>用户ID</li>
+<li>班级ID</li>
+<li>班级分组ID</li>
+<li>分配时间</li>
+<li></li>
+</ul>
+<h1 id="公告资讯"><a href="#公告资讯" class="headerlink" title="公告资讯"></a>公告资讯</h1><ul>
+<li>标题</li>
+<li>内容</li>
+<li>简要介绍</li>
+<li>所属栏目</li>
+<li>类型<br>公告<br>资讯</li>
+<li>创建时间</li>
+<li>创建人</li>
+<li>上线状态<br>下线<br>上线</li>
+<li>阅读数量</li>
+</ul>
+<h1 id="公告资讯栏目"><a href="#公告资讯栏目" class="headerlink" title="公告资讯栏目"></a>公告资讯栏目</h1><ul>
+<li>名称</li>
+<li>创建时间</li>
+</ul>
+<h1 id="课程与专题"><a href="#课程与专题" class="headerlink" title="课程与专题"></a>课程与专题</h1><ul>
+<li>课程ID</li>
+<li>课程专题ID</li>
+</ul>
+<h1 id="课程与知识标签"><a href="#课程与知识标签" class="headerlink" title="课程与知识标签"></a>课程与知识标签</h1><ul>
+<li>课程ID</li>
+<li>用户ID</li>
+<li>知识标签ID</li>
+</ul>
+<h1 id="知识标签"><a href="#知识标签" class="headerlink" title="知识标签"></a>知识标签</h1><ul>
+<li>名称</li>
+<li>统计个人知识图谱的时候使用。</li>
+</ul>
+<h1 id="课程学习笔记"><a href="#课程学习笔记" class="headerlink" title="课程学习笔记"></a>课程学习笔记</h1><ul>
+<li>内容</li>
+<li>提交时间</li>
+<li>课程ID</li>
+<li>用户ID</li>
+<li>推荐指数<br>1-5颗星</li>
+<li>推荐用户ID</li>
+<li>推荐时间</li>
+</ul>
+<h1 id="课程分类"><a href="#课程分类" class="headerlink" title="课程分类"></a>课程分类</h1><ul>
+<li>名称</li>
+<li>父课程分类ID</li>
+<li>目前课程提出有13大课程分类。</li>
+</ul>
+<h1 id="课程关键词"><a href="#课程关键词" class="headerlink" title="课程关键词"></a>课程关键词</h1><ul>
+<li>名称</li>
+</ul>
+<h1 id="课程与分类"><a href="#课程与分类" class="headerlink" title="课程与分类"></a>课程与分类</h1><p>一个分类下拥有多门课程。一个课程也可能在多个分类下。</p>
+<ul>
+<li>课程ID</li>
+<li>课程分类ID</li>
+<li></li>
+</ul>
+<h1 id="课程评价"><a href="#课程评价" class="headerlink" title="课程评价"></a>课程评价</h1><ul>
+<li>用户ID</li>
+<li>课程ID</li>
+<li>评价时间</li>
+<li>评价内容</li>
+<li>是否点赞</li>
+</ul>
+<h1 id="课程与班级"><a href="#课程与班级" class="headerlink" title="课程与班级"></a>课程与班级</h1><p>通常一个班级拥有多个课程。一个课程也可能存在于多个班级下</p>
+<ul>
+<li>课程ID</li>
+<li>班级ID</li>
+<li>分配时间</li>
+<li></li>
+</ul>
+<h1 id="学习记录"><a href="#学习记录" class="headerlink" title="学习记录"></a>学习记录</h1><ul>
+<li>课程ID</li>
+<li>进度百分比</li>
+<li>获取到的学时</li>
+<li>最近一次学习时间</li>
+<li>培训方式</li>
+<li>是否一键听课</li>
+</ul>
+<h1 id="试卷"><a href="#试卷" class="headerlink" title="试卷"></a>试卷</h1><ul>
+<li>考试规则ID</li>
+<li>班级ID</li>
+</ul>
+<h1 id="考试规则"><a href="#考试规则" class="headerlink" title="考试规则"></a>考试规则</h1><p>学员在考试的时候，系统自动按照规则抽题出来。</p>
+<ul>
+<li>允许考试次数<br>默认无限次。</li>
+<li>合格线</li>
+<li>单选题目数量</li>
+<li>多选题目数量</li>
+<li>判断题目数量</li>
+<li></li>
+</ul>
+<h1 id="考试答题记录"><a href="#考试答题记录" class="headerlink" title="考试答题记录"></a>考试答题记录</h1><ul>
+<li>用户ID</li>
+<li>题目ID</li>
+<li>试卷ID</li>
+<li>题目类型<br>单选、多选、判断、问答</li>
+<li>选项结果</li>
+<li>问答结果</li>
+<li>单题得分</li>
+</ul>
+<h1 id="单选题库"><a href="#单选题库" class="headerlink" title="单选题库"></a>单选题库</h1><ul>
+<li>问题</li>
+<li>选项1</li>
+<li>选项2</li>
+<li>选项3</li>
+<li>选项4</li>
+<li>答案</li>
+</ul>
+<h1 id="多选题库"><a href="#多选题库" class="headerlink" title="多选题库"></a>多选题库</h1><ul>
+<li>选项1</li>
+<li>选项2</li>
+<li>选项3</li>
+<li>选项4</li>
+<li>答案</li>
+</ul>
+<h1 id="判断题库"><a href="#判断题库" class="headerlink" title="判断题库"></a>判断题库</h1><ul>
+<li>问题</li>
+<li>答案<br>正确<br>错误</li>
+</ul>
+<h1 id="问答题库"><a href="#问答题库" class="headerlink" title="问答题库"></a>问答题库</h1><ul>
+<li>问题</li>
+</ul>
+<h1 id="调查问卷"><a href="#调查问卷" class="headerlink" title="调查问卷"></a>调查问卷</h1><ul>
+<li>名称</li>
+<li>问卷类型<br>班级调查问卷、课程调查问卷、投票问卷</li>
+<li>调查实体ID</li>
+</ul>
+<h1 id="调查问卷提交记录"><a href="#调查问卷提交记录" class="headerlink" title="调查问卷提交记录"></a>调查问卷提交记录</h1><ul>
+<li>题目ID</li>
+<li>用户ID</li>
+<li>调查问卷ID</li>
+<li>题目类型<br>单选、多选、问答、投票</li>
+<li>单项投票结果</li>
+<li>问答结果</li>
+<li>提交时间</li>
+</ul>
+<h1 id="系统消息"><a href="#系统消息" class="headerlink" title="系统消息"></a>系统消息</h1><ul>
+<li>消息类型<br>资讯、公告、审批</li>
+<li>消息ID</li>
+<li>消息形式<br>短息、消息</li>
+<li>标题</li>
+<li>消息内容</li>
+<li>发布时间</li>
+</ul>
+<h1 id="系统消息与用户"><a href="#系统消息与用户" class="headerlink" title="系统消息与用户"></a>系统消息与用户</h1><ul>
+<li>用户ID</li>
+<li>系统消息ID</li>
+<li>是否查阅</li>
+<li>是否接收</li>
+</ul>
+<h1 id="用户行为-1"><a href="#用户行为-1" class="headerlink" title="用户行为"></a>用户行为</h1><ul>
+<li>类型<br>登录、退出、查看课程</li>
+<li>事项ID<br>课程ID。。。</li>
+<li>时间</li>
+</ul>
+<h1 id="教学资源分类"><a href="#教学资源分类" class="headerlink" title="教学资源分类"></a>教学资源分类</h1><ul>
+<li>名称</li>
+<li>父教学资源分类ID</li>
+</ul>
+<h1 id="教学资源"><a href="#教学资源" class="headerlink" title="教学资源"></a>教学资源</h1><ul>
+<li>文档名称</li>
+<li>文档类型</li>
+<li>教学资源分类ID</li>
+<li>文档标签</li>
+<li>等同于参考资料，存放各类的文稿。</li>
+</ul>
+<h1 id="调查问卷-1"><a href="#调查问卷-1" class="headerlink" title="调查问卷"></a>调查问卷</h1><ul>
+<li>名称</li>
+<li>问卷类型</li>
+<li>调查实体ID</li>
+</ul>
+<h1 id="审核记录"><a href="#审核记录" class="headerlink" title="审核记录"></a>审核记录</h1><ul>
+<li>审核人</li>
+<li>审核时间</li>
+<li>审核状态</li>
+<li>审核意见</li>
+<li>上一步审核记录ID</li>
+<li>下一步审核记录ID</li>
+</ul>
+<h1 id="2期及以后"><a href="#2期及以后" class="headerlink" title="2期及以后"></a>2期及以后</h1><h2 id="教学基地"><a href="#教学基地" class="headerlink" title="教学基地"></a>教学基地</h2><ul>
+<li>基地分类</li>
+<li>基地名称</li>
+<li>联系人</li>
+<li>联系电话</li>
+<li>教学主题</li>
+<li>基地地址</li>
+</ul>
+<h2 id="线下培训请假记录"><a href="#线下培训请假记录" class="headerlink" title="线下培训请假记录"></a>线下培训请假记录</h2><ul>
+<li>用户ID</li>
+<li>请假时间</li>
+<li>第一个审核记录ID</li>
+<li>审核结果</li>
+<li>撤回时间</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/cdproject/2017/11/21/2017/过渡平台常见问题处理/" rel="next" title="过渡平台常见问题处理">
+                <i class="fa fa-chevron-left"></i> 过渡平台常见问题处理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/cdproject/2017/11/21/2017/成都干部网络学院2期需求/" rel="prev" title="成都干部网络学院2期需求">
+                成都干部网络学院2期需求 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">无</p>
+              <p class="site-description motion-element" itemprop="description">一些文档</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/cdproject/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/cdproject/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/cdproject/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#用户"><span class="nav-number">1.</span> <span class="nav-text">用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线上课程"><span class="nav-number">2.</span> <span class="nav-text">线上课程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线下课程"><span class="nav-number">3.</span> <span class="nav-text">线下课程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#平台"><span class="nav-number">4.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#角色"><span class="nav-number">5.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#课程专题"><span class="nav-number">6.</span> <span class="nav-text">课程专题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#专题推送记录"><span class="nav-number">7.</span> <span class="nav-text">专题推送记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#班级"><span class="nav-number">8.</span> <span class="nav-text">班级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#班级审核记录"><span class="nav-number">9.</span> <span class="nav-text">班级审核记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单位"><span class="nav-number">10.</span> <span class="nav-text">单位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习档案"><span class="nav-number">11.</span> <span class="nav-text">学习档案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#考试记录"><span class="nav-number">12.</span> <span class="nav-text">考试记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户行为"><span class="nav-number">13.</span> <span class="nav-text">用户行为</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#人员调动记录"><span class="nav-number">14.</span> <span class="nav-text">人员调动记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户与角色"><span class="nav-number">15.</span> <span class="nav-text">用户与角色</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#角色-1"><span class="nav-number">16.</span> <span class="nav-text">角色</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#权限"><span class="nav-number">17.</span> <span class="nav-text">权限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#角色与权限"><span class="nav-number">18.</span> <span class="nav-text">角色与权限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#班级分组"><span class="nav-number">19.</span> <span class="nav-text">班级分组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户与班级"><span class="nav-number">20.</span> <span class="nav-text">用户与班级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公告资讯"><span class="nav-number">21.</span> <span class="nav-text">公告资讯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公告资讯栏目"><span class="nav-number">22.</span> <span class="nav-text">公告资讯栏目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#课程与专题"><span class="nav-number">23.</span> <span class="nav-text">课程与专题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#课程与知识标签"><span class="nav-number">24.</span> <span class="nav-text">课程与知识标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识标签"><span class="nav-number">25.</span> <span class="nav-text">知识标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#课程学习笔记"><span class="nav-number">26.</span> <span class="nav-text">课程学习笔记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#课程分类"><span class="nav-number">27.</span> <span class="nav-text">课程分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#课程关键词"><span class="nav-number">28.</span> <span class="nav-text">课程关键词</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#课程与分类"><span class="nav-number">29.</span> <span class="nav-text">课程与分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#课程评价"><span class="nav-number">30.</span> <span class="nav-text">课程评价</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#课程与班级"><span class="nav-number">31.</span> <span class="nav-text">课程与班级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习记录"><span class="nav-number">32.</span> <span class="nav-text">学习记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#试卷"><span class="nav-number">33.</span> <span class="nav-text">试卷</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#考试规则"><span class="nav-number">34.</span> <span class="nav-text">考试规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#考试答题记录"><span class="nav-number">35.</span> <span class="nav-text">考试答题记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单选题库"><span class="nav-number">36.</span> <span class="nav-text">单选题库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多选题库"><span class="nav-number">37.</span> <span class="nav-text">多选题库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#判断题库"><span class="nav-number">38.</span> <span class="nav-text">判断题库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问答题库"><span class="nav-number">39.</span> <span class="nav-text">问答题库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调查问卷"><span class="nav-number">40.</span> <span class="nav-text">调查问卷</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调查问卷提交记录"><span class="nav-number">41.</span> <span class="nav-text">调查问卷提交记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统消息"><span class="nav-number">42.</span> <span class="nav-text">系统消息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统消息与用户"><span class="nav-number">43.</span> <span class="nav-text">系统消息与用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户行为-1"><span class="nav-number">44.</span> <span class="nav-text">用户行为</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#教学资源分类"><span class="nav-number">45.</span> <span class="nav-text">教学资源分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#教学资源"><span class="nav-number">46.</span> <span class="nav-text">教学资源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调查问卷-1"><span class="nav-number">47.</span> <span class="nav-text">调查问卷</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#审核记录"><span class="nav-number">48.</span> <span class="nav-text">审核记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2期及以后"><span class="nav-number">49.</span> <span class="nav-text">2期及以后</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#教学基地"><span class="nav-number">49.1.</span> <span class="nav-text">教学基地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线下培训请假记录"><span class="nav-number">49.2.</span> <span class="nav-text">线下培训请假记录</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">无</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/cdproject/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/cdproject/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/cdproject/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/cdproject/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/cdproject/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/cdproject/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/cdproject/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/cdproject/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/cdproject/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/cdproject/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/cdproject/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/cdproject/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
