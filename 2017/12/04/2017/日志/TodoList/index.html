@@ -84,7 +84,7 @@
 <meta property="og:site_name" content="成都干部网络学院">
 <meta property="og:description" content="待处理问题单">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-07T07:22:24.420Z">
+<meta property="og:updated_time" content="2017-12-08T01:23:54.719Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Todo List">
 <meta name="twitter:description" content="待处理问题单">
@@ -430,6 +430,8 @@
 </ul>
 </li>
 </ul>
+<div id="sequence-0"></div>
+
 <h2 id="任从辉"><a href="#任从辉" class="headerlink" title="任从辉"></a>任从辉</h2><ul>
 <li>规划和启动移动学员端的设计工作。评估和细分设计任务。</li>
 <li>手机App交互优化。</li>
@@ -445,7 +447,10 @@
 </li>
 <li><p>学习使用AppScanner测试工具的使用。</p>
 </li>
-<li><p>混合式培训班管理功能的规划。考虑PC和移动端、管理和学员端操作流程的打通。</p>
+<li><p>混合式培训班管理功能的规划。考虑PC和移动端、管理和学员端操作流程的打通。<script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Title:班级审核过程
+子平台管理员->总平台管理员: 输入班级基本信息
+服务器主机->客户主机: 授予连接（SYN=1,seq=client_isn）\n ack=client_isn+1
+客户主机->服务器主机: 确认（SYN=0,seq=client_isn+1）\nack=server_isn+1</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script></p>
 </li>
 </ul>
 
