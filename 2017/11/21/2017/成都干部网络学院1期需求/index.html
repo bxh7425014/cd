@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://gitee.com/uploads/images/2017/1207/155944_73142f92_438941.png">
 <meta property="og:image" content="https://gitee.com/uploads/images/2017/1207/155736_90cac33c_438941.png">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1124873-e26f2fee8fb6de78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-12-08T06:14:12.151Z">
+<meta property="og:updated_time" content="2017-12-08T07:09:03.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成都干部网络学院1期需求">
 <meta name="twitter:description" content="成都干部网络学院1期需求整理稿。">
@@ -692,7 +692,7 @@
 <li><a href="https://i.loli.net/2017/11/11/5a065e1a5e2a5.png" target="_blank" rel="noopener">证书管理</a><br>1、电子证书打印（支持批量套打功能）<br>2、支持水印、唯一证书编号、显示班级名称、时间段、成绩等。<br>3、支持在线查询</li>
 </ul>
 <p><span id="培训管理"></span></p>
-<h4 id="培训管理"><a href="#培训管理" class="headerlink" title="培训管理"></a>培训管理</h4><p>制定培训计划，针对平台和年度来设定，由不同的班级组成，培训计划中的学时目标由班级中的必修课和选修课学时自动相加得出。<br>关于数据来源，中青平台的班级列表和培训目标学时自动获取，第三方平台将来通过手动设定（将来考虑通过接口来获取）。<br>1期只考虑中青平台。<br>对应的，每个学员在自己的班级首页可以看到本年度的培训计划完成情况。展示数据格式如下：<br>    培训班xx，目标学时：xx 已完成学时：xx<br>    培训班xx，目标学时：xx 已完成学时：xx<br>    培训班xx，目标学时：xx 已完成学时：xx<br>    …</p>
+<h4 id="培训管理"><a href="#培训管理" class="headerlink" title="培训管理"></a>培训管理</h4><p>平台管理员来管理培训计划。总平台管理员可以管理下级的。子平台管理员只能管理自己平台的培训计划。<br>制定培训计划，针对平台和年度来设定，由不同的班级组成，培训计划中的学时目标由班级中的必修课和选修课学时自动相加得出。<br>关于数据来源，中青平台的班级列表和培训目标学时自动获取，第三方平台将来通过手动设定（将来考虑通过接口来获取）。<br>1期只考虑中青平台。<br>对应的，每个学员在自己的班级首页可以看到本年度的培训计划完成情况。展示数据格式如下：<br>    培训班xx，目标学时：xx 已完成学时：xx<br>    培训班xx，目标学时：xx 已完成学时：xx<br>    培训班xx，目标学时：xx 已完成学时：xx<br>    …</p>
 <p><span id="教学资源管理"></span></p>
 <h3 id="教学资源管理"><a href="#教学资源管理" class="headerlink" title="教学资源管理"></a>教学资源管理</h3><p>教学资源所有平台都是公用的。挂接过渡平台现有的链接，在PC学员端以9宫格方式展示，缩略图支持自定义，展示顺序可在管理端进行调整。<br>只有总平台管理员才可以管理教学资源，可见性针对所有平台一起设定。</p>
 <h3 id="学员管理"><a href="#学员管理" class="headerlink" title="学员管理"></a>学员管理</h3><p>选定学员后查看培训档案，路径跳转至数据统计的“学员培训档案分析”，应该直接显示选定的学员，无须再筛选一次。</p>
@@ -848,9 +848,7 @@
 <li>本系统将满足15万注册用户，10000人以上同时在线学习。</li>
 <li>本系统需要预留好扩展接口，2期之后，会陆续导入相关平台学员的学习数据，本平台需要实现对应的统计功能。</li>
 </ul>
-<h1 id="故障处理要求"><a href="#故障处理要求" class="headerlink" title="故障处理要求"></a>故障处理要求</h1><p>在本项目软件的开发期间，要进行各种软件质量保证活动，准确记录、及时分析并妥善保存有关这些活动的记录，是确保软件质量的重要条件。在软件质量保证组中，由软件质量保证组质量保证人员负责收集、汇总与保存有关软件质量保证活动的记录。<br>详细请见《工程质量保证计划》文档。<script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Title:班级审核过程
-子平台管理员->总平台管理员:发起开班申请
-总平台管理员->学员:审核通过后，学员即可学习</textarea><textarea id="sequence-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start
+<h1 id="故障处理要求"><a href="#故障处理要求" class="headerlink" title="故障处理要求"></a>故障处理要求</h1><p>在本项目软件的开发期间，要进行各种软件质量保证活动，准确记录、及时分析并妥善保存有关这些活动的记录，是确保软件质量的重要条件。在软件质量保证组中，由软件质量保证组质量保证人员负责收集、汇总与保存有关软件质量保证活动的记录。<br>详细请见《工程质量保证计划》文档。<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start
 op=>operation: 子平台管理员输入班级基本信息(名称、周期、简介、班级形式等）
 op1=>operation: 配置班级学员、班主任
 op2=>operation: 配置必修课、选修课
@@ -862,7 +860,9 @@ cond(yes)->op2
 op2->op3
 op3->op1
 cond(no)->op1
-op1->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
+op1->e</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Title:班级审核过程
+子平台管理员->总平台管理员:发起开班申请
+总平台管理员->学员:审核通过后，学员即可学习</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script></p>
 
       
     </div>
@@ -903,8 +903,8 @@ op1->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scal
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/21/2017/成都干部网络学院2期需求/" rel="prev" title="成都干部网络学院2期需求">
-                成都干部网络学院2期需求 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/23/2017/日志/2017-11-23 根据需求优化交互设计/" rel="prev" title="根据需求优化交互设计">
+                根据需求优化交互设计 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
