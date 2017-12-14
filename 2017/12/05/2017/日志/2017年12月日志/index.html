@@ -84,10 +84,12 @@
 <meta property="og:site_name" content="成都干部网络学院">
 <meta property="og:description" content="12月工作日志">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-12T07:42:34.555Z">
+<meta property="og:image" content="https://gitee.com/uploads/images/2017/1213/145344_3ad1608b_438941.png">
+<meta property="og:updated_time" content="2017-12-13T09:13:50.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017年12月日志 - 卞晓辉">
 <meta name="twitter:description" content="12月工作日志">
+<meta name="twitter:image" content="https://gitee.com/uploads/images/2017/1213/145344_3ad1608b_438941.png">
 
 
 
@@ -377,11 +379,57 @@
       
 
       
-        <h1 id="2017-12-12"><a href="#2017-12-12" class="headerlink" title="2017-12-12"></a>2017-12-12</h1><ul>
+        <p>把青白江那个富媒体课程挂到平台上去<br>让晓波设计logo。</p>
+<h1 id="2017-12-13"><a href="#2017-12-13" class="headerlink" title="2017-12-13"></a>2017-12-13</h1><ul>
+<li>过渡平台<ul>
+<li>首页增加图说十九大、微案例-e动玉北</li>
+</ul>
+</li>
+<li>解决IntelliJ IDEA复制和粘贴快捷键不起作用的问题：原来使用了vim编辑模式。</li>
+<li><p>数据库优化</p>
+<ul>
+<li>调查问卷数据表设计<ul>
+<li>t_questionnaire：调查问卷表</li>
+<li>t_question_options：调查问卷选项表</li>
+<li>t_questions_stems：调查问卷题干表</li>
+</ul>
+</li>
+<li>明确定义，t_msg_class_student：student_id改为receive_student_id</li>
+<li>调查问卷表：t_questionnaire<ul>
+<li>删除single_choice_topic_ids、multi_choice_topic_ids、question_answer_ids</li>
+</ul>
+</li>
+<li>题干表：t_questions_stems<ul>
+<li>明确题干所属的范围（调查问卷/考试）</li>
+</ul>
+</li>
+<li>考试表：t_testpaper<ul>
+<li>去掉多余的题干和考试试卷对应关系等字段。</li>
+</ul>
+</li>
+<li>考试结果表：t_testpaper_result<ul>
+<li>去掉多余的答案记录，因为答案记录在</li>
+</ul>
+</li>
+<li>增加学员答题记录表：t_questions_answer_record（考试和调查问卷公用），删除调查问卷记录表t_questionnaire_record。</li>
+<li>修改表名，使其自动挨着排序：t_question_options –&gt; t_questions_options。</li>
+<li>考试表t_testpaper增加对考试规则的关联。学员考试结果记录表t_testpaper_result去掉对考试规则的关联。</li>
+</ul>
+</li>
+<li><p>为期两个月的培训资源（4.3-5.28号）</p>
+<ul>
+<li>需要干训管理系统进行配合，主要是用户信息的接入。</li>
+<li>由于同时在线播放人数数量较大，对带宽和CDN有要求，需要采用商业云来满足弹性和安全需求。</li>
+<li>具体的网络服务资源需求清单如下：<br><img src="https://gitee.com/uploads/images/2017/1213/145344_3ad1608b_438941.png" alt="输入图片说明" title="商业云服务资源成本估算.png"></li>
+</ul>
+</li>
+</ul>
+<h1 id="2017-12-12"><a href="#2017-12-12" class="headerlink" title="2017-12-12"></a>2017-12-12</h1><ul>
 <li>数据库优化<ul>
 <li>检查并修正table主键和类型。</li>
 <li>建立学习笔记和推荐人的中间表。</li>
 <li>去除消息表冗余字段（接受者）。</li>
+<li>删掉培训班组表：t_training_class_group</li>
 </ul>
 </li>
 <li>过渡平台问题<ul>
@@ -693,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-12"><span class="nav-number">1.</span> <span class="nav-text">2017-12-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-11"><span class="nav-number">2.</span> <span class="nav-text">2017-12-11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天进展"><span class="nav-number">2.1.</span> <span class="nav-text">今天进展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划"><span class="nav-number">2.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-9"><span class="nav-number">3.</span> <span class="nav-text">2017-12-9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-8"><span class="nav-number">4.</span> <span class="nav-text">2017-12-8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天进展-1"><span class="nav-number">4.1.</span> <span class="nav-text">今天进展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划-1"><span class="nav-number">4.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-7"><span class="nav-number">5.</span> <span class="nav-text">2017-12-7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天进展-2"><span class="nav-number">5.1.</span> <span class="nav-text">今天进展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划-2"><span class="nav-number">5.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-6"><span class="nav-number">6.</span> <span class="nav-text">2017-12-6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天完成情况"><span class="nav-number">6.1.</span> <span class="nav-text">今天完成情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划-3"><span class="nav-number">6.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-5"><span class="nav-number">7.</span> <span class="nav-text">2017-12-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-1"><span class="nav-number">8.</span> <span class="nav-text">2017-12-1</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-13"><span class="nav-number">1.</span> <span class="nav-text">2017-12-13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-12"><span class="nav-number">2.</span> <span class="nav-text">2017-12-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-11"><span class="nav-number">3.</span> <span class="nav-text">2017-12-11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天进展"><span class="nav-number">3.1.</span> <span class="nav-text">今天进展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划"><span class="nav-number">3.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-9"><span class="nav-number">4.</span> <span class="nav-text">2017-12-9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-8"><span class="nav-number">5.</span> <span class="nav-text">2017-12-8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天进展-1"><span class="nav-number">5.1.</span> <span class="nav-text">今天进展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划-1"><span class="nav-number">5.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-7"><span class="nav-number">6.</span> <span class="nav-text">2017-12-7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天进展-2"><span class="nav-number">6.1.</span> <span class="nav-text">今天进展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划-2"><span class="nav-number">6.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-6"><span class="nav-number">7.</span> <span class="nav-text">2017-12-6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天完成情况"><span class="nav-number">7.1.</span> <span class="nav-text">今天完成情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划-3"><span class="nav-number">7.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-5"><span class="nav-number">8.</span> <span class="nav-text">2017-12-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-1"><span class="nav-number">9.</span> <span class="nav-text">2017-12-1</span></a></li></ol></div>
             
 
           </div>
