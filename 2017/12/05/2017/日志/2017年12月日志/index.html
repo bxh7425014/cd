@@ -85,7 +85,7 @@
 <meta property="og:description" content="12月工作日志">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://gitee.com/uploads/images/2017/1213/145344_3ad1608b_438941.png">
-<meta property="og:updated_time" content="2017-12-20T04:16:32.199Z">
+<meta property="og:updated_time" content="2017-12-21T02:32:18.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017年12月日志 - 卞晓辉">
 <meta name="twitter:description" content="12月工作日志">
@@ -381,6 +381,71 @@
       
         <ul>
 <li>跟段闯沟通成都平台的代码优化意见。</li>
+</ul>
+<h1 id="2017-12-21"><a href="#2017-12-21" class="headerlink" title="2017-12-21"></a>2017-12-21</h1><ul>
+<li>数据库更新<ul>
+<li>t_comment_record<ul>
+<li><code>新增</code> <code>student_id</code> bigint(20) UNSIGNED NULL COMMENT ‘学员’, <code>course_id</code> bigint(20) UNSIGNED NULL,</li>
+</ul>
+</li>
+<li>t_course_exam_approval_record<ul>
+<li><code>重命名</code> student_id to user_id</li>
+</ul>
+</li>
+<li><code>删除</code> t_exam</li>
+<li>t_learning_notes_recommend_user<ul>
+<li><code>添加</code> <code>platform_id</code> bigint(20) UNSIGNED NULL</li>
+</ul>
+</li>
+<li>t_learning_notes_record<ul>
+<li><code>新增</code> <code>student_id</code> bigint(20) UNSIGNED NULL,<code>course_id</code> bigint(20) UNSIGNED NULL</li>
+</ul>
+</li>
+<li>t_notice<ul>
+<li><code>新增</code> <code>column_id</code> bigint UNSIGNED NULL COMMENT ‘投放的栏目’</li>
+</ul>
+</li>
+<li>t_questions_stems<ul>
+<li><code>删除</code> parent_id，parent_type</li>
+<li><code>新增</code> <ul>
+<li><code>questionnaire_id</code> bigint(20) UNSIGNED NULL DEFAULT NULL COMMENT ‘题干所属范围的ID（考试ID、调查问卷ID）’,</li>
+<li><code>testpaper_id</code> bigint(20) UNSIGNED NULL DEFAULT 试卷 COMMENT ‘题干所属范围’,</li>
+<li><code>course_id</code> bigint(20) NULL COMMENT ‘题目所属于的课程（课程题库中的题目）’,</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>t_student<ul>
+<li><code>删除</code> <ul>
+<li><code>certificate_type_id</code> bigint(20) NOT NULL COMMENT ‘证件类型ID’,</li>
+<li><code>certificate_number</code> varchar(128) NOT NULL COMMENT ‘证件号码’,</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>新增</code> t_student_certificate 学员证件记录<ul>
+<li><code>id</code> bigint(20) UNSIGNED NULL AUTO_INCREMENT,</li>
+<li><code>student_id</code> bigint(20) UNSIGNED NULL,</li>
+<li><code>certificate_type_id</code> bigint(20) UNSIGNED NULL COMMENT ‘证件类型ID’,</li>
+<li><code>certificate_number</code> varchar(128) NULL COMMENT ‘证件号码’,</li>
+</ul>
+</li>
+<li>t_testpaper<ul>
+<li><code>删除字段</code> target_id, target_type</li>
+<li><code>新增</code> <code>course_id</code> bigint(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT ‘试卷从属于的课程’,</li>
+</ul>
+</li>
+<li>t_testpaper_result<ul>
+<li><code>新增</code> <code>exam_num</code> int(4) UNSIGNED NULL DEFAULT 0 COMMENT ‘考试次数’,</li>
+</ul>
+</li>
+<li>t_training_class<ul>
+<li><code>删除字段</code> traing_class_group_id</li>
+<li><code>training_plan_id</code> bigint(20) UNSIGNED NULL COMMENT ‘培训计划ID’,</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h1 id="2017-12-20"><a href="#2017-12-20" class="headerlink" title="2017-12-20"></a>2017-12-20</h1><ul>
 <li>完善考试试卷表，增加跟班级、课程、考试规则、题干的关联关系。</li>
@@ -841,7 +906,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-20"><span class="nav-number">1.</span> <span class="nav-text">2017-12-20</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-19"><span class="nav-number">2.</span> <span class="nav-text">2017-12-19</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-18"><span class="nav-number">3.</span> <span class="nav-text">2017-12-18</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-17"><span class="nav-number">4.</span> <span class="nav-text">2017-12-17</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-16"><span class="nav-number">5.</span> <span class="nav-text">2017-12-16</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-15"><span class="nav-number">6.</span> <span class="nav-text">2017-12-15</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-14"><span class="nav-number">7.</span> <span class="nav-text">2017-12-14</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-13"><span class="nav-number">8.</span> <span class="nav-text">2017-12-13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-12"><span class="nav-number">9.</span> <span class="nav-text">2017-12-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-11"><span class="nav-number">10.</span> <span class="nav-text">2017-12-11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天进展"><span class="nav-number">10.1.</span> <span class="nav-text">今天进展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划"><span class="nav-number">10.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-9"><span class="nav-number">11.</span> <span class="nav-text">2017-12-9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-8"><span class="nav-number">12.</span> <span class="nav-text">2017-12-8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天进展-1"><span class="nav-number">12.1.</span> <span class="nav-text">今天进展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划-1"><span class="nav-number">12.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-7"><span class="nav-number">13.</span> <span class="nav-text">2017-12-7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天进展-2"><span class="nav-number">13.1.</span> <span class="nav-text">今天进展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划-2"><span class="nav-number">13.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-6"><span class="nav-number">14.</span> <span class="nav-text">2017-12-6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天完成情况"><span class="nav-number">14.1.</span> <span class="nav-text">今天完成情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划-3"><span class="nav-number">14.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-5"><span class="nav-number">15.</span> <span class="nav-text">2017-12-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-1"><span class="nav-number">16.</span> <span class="nav-text">2017-12-1</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-21"><span class="nav-number">1.</span> <span class="nav-text">2017-12-21</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-20"><span class="nav-number">2.</span> <span class="nav-text">2017-12-20</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-19"><span class="nav-number">3.</span> <span class="nav-text">2017-12-19</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-18"><span class="nav-number">4.</span> <span class="nav-text">2017-12-18</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-17"><span class="nav-number">5.</span> <span class="nav-text">2017-12-17</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-16"><span class="nav-number">6.</span> <span class="nav-text">2017-12-16</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-15"><span class="nav-number">7.</span> <span class="nav-text">2017-12-15</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-14"><span class="nav-number">8.</span> <span class="nav-text">2017-12-14</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-13"><span class="nav-number">9.</span> <span class="nav-text">2017-12-13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-12"><span class="nav-number">10.</span> <span class="nav-text">2017-12-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-11"><span class="nav-number">11.</span> <span class="nav-text">2017-12-11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天进展"><span class="nav-number">11.1.</span> <span class="nav-text">今天进展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划"><span class="nav-number">11.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-9"><span class="nav-number">12.</span> <span class="nav-text">2017-12-9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-8"><span class="nav-number">13.</span> <span class="nav-text">2017-12-8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天进展-1"><span class="nav-number">13.1.</span> <span class="nav-text">今天进展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划-1"><span class="nav-number">13.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-7"><span class="nav-number">14.</span> <span class="nav-text">2017-12-7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天进展-2"><span class="nav-number">14.1.</span> <span class="nav-text">今天进展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划-2"><span class="nav-number">14.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-6"><span class="nav-number">15.</span> <span class="nav-text">2017-12-6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天完成情况"><span class="nav-number">15.1.</span> <span class="nav-text">今天完成情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划-3"><span class="nav-number">15.2.</span> <span class="nav-text">明天计划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-5"><span class="nav-number">16.</span> <span class="nav-text">2017-12-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-12-1"><span class="nav-number">17.</span> <span class="nav-text">2017-12-1</span></a></li></ol></div>
             
 
           </div>
