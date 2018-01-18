@@ -284,6 +284,133 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bxh7425014.github.io/cd/2018/01/18/others/手机3分配支持标准需求/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="无">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="成都干部网络学院">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/18/others/手机3分配支持标准需求/" itemprop="url">手机三分配支持标准需求</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T12:04:17+08:00">
+                2018-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>需提供文件的目录结构：</p>
+<p>根目录：<br>根目录存放了课程的logo、课件目录courseware。<br>logo尺寸：480W*270H<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">courseware</span><br><span class="line">logo.gif</span><br></pre></td></tr></table></figure></p>
+<p>课件目录courseware目录下新建文件夹：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data</span><br><span class="line">ppt</span><br><span class="line">video</span><br></pre></td></tr></table></figure></p>
+<p>data目录下新建文件：data.xml，此文件存放课件中ppt的播放时间以及课程目录。<br>数据结构如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">sco</span> <span class="attr">title</span>=<span class="string">"刘春《从党性修养角度谈如何做合格党员》"</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">sectiontitle</span> <span class="attr">title</span>=<span class="string">"课程目录"</span>/&gt;</span>  </span><br><span class="line">  <span class="comment">&lt;!-- 音视频，type视频类型，wmv启用wmv标签，mp4时启用mp4、rtmp、m3u8标签，其中mp4优先级最低--&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">media</span> <span class="attr">type</span>=<span class="string">"mp4"</span> <span class="attr">duration</span>=<span class="string">"1:04:55"</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">wmv</span> <span class="attr">src</span>=<span class="string">""</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">mp4</span> <span class="attr">src</span>=<span class="string">"http://v.zqzxedu.cn/course/20170727001/courseware/video/1.mp4"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">rtmp</span> <span class="attr">src</span>=<span class="string">""</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">m3u8</span> <span class="attr">src</span>=<span class="string">""</span>/&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">media</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">document</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:00:00"</span> <span class="attr">src</span>=<span class="string">"ppt_01.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:00:19"</span> <span class="attr">src</span>=<span class="string">"ppt_02.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:00:41"</span> <span class="attr">src</span>=<span class="string">"ppt_03.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:00:54"</span> <span class="attr">src</span>=<span class="string">"ppt_04.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:03:49"</span> <span class="attr">src</span>=<span class="string">"ppt_05.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:08:31"</span> <span class="attr">src</span>=<span class="string">"ppt_06.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:10:44"</span> <span class="attr">src</span>=<span class="string">"ppt_07.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:15:30"</span> <span class="attr">src</span>=<span class="string">"ppt_08.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:18:04"</span> <span class="attr">src</span>=<span class="string">"ppt_09.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:20:20"</span> <span class="attr">src</span>=<span class="string">"ppt_10.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:24:27"</span> <span class="attr">src</span>=<span class="string">"ppt_11.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:26:48"</span> <span class="attr">src</span>=<span class="string">"ppt_12.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:27:58"</span> <span class="attr">src</span>=<span class="string">"ppt_13.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:29:16"</span> <span class="attr">src</span>=<span class="string">"ppt_14.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:33:20"</span> <span class="attr">src</span>=<span class="string">"ppt_15.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:35:03"</span> <span class="attr">src</span>=<span class="string">"ppt_16.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:39:11"</span> <span class="attr">src</span>=<span class="string">"ppt_17.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:41:26"</span> <span class="attr">src</span>=<span class="string">"ppt_18.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:43:56"</span> <span class="attr">src</span>=<span class="string">"ppt_19.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:47:38"</span> <span class="attr">src</span>=<span class="string">"ppt_20.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:51:56"</span> <span class="attr">src</span>=<span class="string">"ppt_21.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:54:56"</span> <span class="attr">src</span>=<span class="string">"ppt_22.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"0:57:25"</span> <span class="attr">src</span>=<span class="string">"ppt_23.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"1:00:33"</span> <span class="attr">src</span>=<span class="string">"ppt_24.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"1:02:06"</span> <span class="attr">src</span>=<span class="string">"ppt_25.jpg"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">page</span> <span class="attr">pos</span>=<span class="string">"1:04:45"</span> <span class="attr">src</span>=<span class="string">"ppt_26.jpg"</span>/&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">document</span>&gt;</span>  </span><br><span class="line">  <span class="comment">&lt;!-- 导航菜单 --&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">menu</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">title</span>=<span class="string">"标题"</span> <span class="attr">pos</span>=<span class="string">"0:00:00"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">title</span>=<span class="string">"主要内容"</span> <span class="attr">pos</span>=<span class="string">"0:00:19"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">title</span>=<span class="string">"一、大力增强党性修养的重要性和紧迫性"</span> <span class="attr">pos</span>=<span class="string">"0:00:41"</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span> <span class="attr">title</span>=<span class="string">"（一）党性修养的主要含义"</span> <span class="attr">pos</span>=<span class="string">"0:00:54"</span>/&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span> <span class="attr">title</span>=<span class="string">"（二）党性修养的重要意义"</span> <span class="attr">pos</span>=<span class="string">"0:08:31"</span>/&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">title</span>=<span class="string">"二、如何增强党性修养争做合格党员"</span> <span class="attr">pos</span>=<span class="string">"0:27:58"</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span> <span class="attr">title</span>=<span class="string">"（一）坚定理想信念"</span> <span class="attr">pos</span>=<span class="string">"0:29:16"</span>/&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span> <span class="attr">title</span>=<span class="string">"（二）自觉遵守党纪、维护党纪权威"</span> <span class="attr">pos</span>=<span class="string">"0:39:11"</span>/&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span> <span class="attr">title</span>=<span class="string">"（三）加强党性锻炼和道德修养"</span> <span class="attr">pos</span>=<span class="string">"0:47:38"</span>/&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span> <span class="attr">title</span>=<span class="string">"（四）始终保持开拓进取精神"</span> <span class="attr">pos</span>=<span class="string">"0:51:56"</span>/&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span> <span class="attr">title</span>=<span class="string">"（五）加强政德、官德修养"</span> <span class="attr">pos</span>=<span class="string">"0:57:25"</span>/&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;<span class="name">section</span> <span class="attr">title</span>=<span class="string">"（六）注重个人品德修养"</span> <span class="attr">pos</span>=<span class="string">"1:00:33"</span>/&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">title</span>=<span class="string">"结束"</span> <span class="attr">pos</span>=<span class="string">"1:04:45"</span>/&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">menu</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sco</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>其中mp4的地址需要手动调整为正确的地址，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mp4 src=&quot;http://v.zqzxedu.cn/course/20170727001/courseware/video/1.mp4&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>ppt目录存放了课件对应的图片，图片命名格式为ppt_*.jpg。图片尺寸要求：960px*720px。<br>在本示例中图片命名如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">ppt_01.jpg</span><br><span class="line">ppt_02.jpg</span><br><span class="line">ppt_03.jpg</span><br><span class="line">ppt_04.jpg</span><br><span class="line">ppt_05.jpg</span><br><span class="line">ppt_06.jpg</span><br><span class="line">ppt_07.jpg</span><br><span class="line">ppt_08.jpg</span><br><span class="line">ppt_09.jpg</span><br><span class="line">ppt_10.jpg</span><br><span class="line">ppt_11.jpg</span><br><span class="line">ppt_12.jpg</span><br><span class="line">ppt_13.jpg</span><br><span class="line">ppt_14.jpg</span><br><span class="line">ppt_15.jpg</span><br><span class="line">ppt_16.jpg</span><br><span class="line">ppt_17.jpg</span><br><span class="line">ppt_18.jpg</span><br><span class="line">ppt_19.jpg</span><br><span class="line">ppt_20.jpg</span><br><span class="line">ppt_21.jpg</span><br><span class="line">ppt_22.jpg</span><br><span class="line">ppt_23.jpg</span><br><span class="line">ppt_24.jpg</span><br><span class="line">ppt_25.jpg</span><br><span class="line">ppt_26.jpg</span><br></pre></td></tr></table></figure></p>
+<p>video目录存放视频文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.mp4。</span><br></pre></td></tr></table></figure></p>
+<p>对于其他家课件的题库，需要按照此格式，管理员在PC管理端导入到课程对应的题库成功即可，<a href="https://pan.baidu.com/s/1snlymMp" target="_blank" rel="noopener">题库模板示例</a>。<br>请<a href="https://pan.baidu.com/s/1jJYfs1o" target="_blank" rel="noopener">点击下载</a>完整的支持移动端三分屏的课件模板。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bxh7425014.github.io/cd/2017/12/21/项目备忘/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -408,7 +535,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bxh7425014.github.io/cd/2017/11/23/2017/2017-11-23 根据需求优化交互设计/">
+    <link itemprop="mainEntityOfPage" href="http://bxh7425014.github.io/cd/2017/11/23/others/2017-11-23 根据需求优化交互设计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="无">
@@ -427,7 +554,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/23/2017/2017-11-23 根据需求优化交互设计/" itemprop="url">根据需求优化交互设计</a></h1>
+                <a class="post-title-link" href="/2017/11/23/others/2017-11-23 根据需求优化交互设计/" itemprop="url">根据需求优化交互设计</a></h1>
         
 
         <div class="post-meta">
@@ -503,7 +630,7 @@
           “2017.11.21 整体修改意见.docx” 处理结果
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/23/2017/2017-11-23 根据需求优化交互设计/">
+            <a class="btn" href="/2017/11/23/others/2017-11-23 根据需求优化交互设计/">
               阅读全文 &raquo;
             </a>
           </div>
@@ -948,7 +1075,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bxh7425014.github.io/cd/2017/11/21/2017/过渡平台常见问题处理/">
+    <link itemprop="mainEntityOfPage" href="http://bxh7425014.github.io/cd/2017/11/21/others/过渡平台常见问题处理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="无">
@@ -967,7 +1094,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/21/2017/过渡平台常见问题处理/" itemprop="url">过渡平台常见问题处理</a></h1>
+                <a class="post-title-link" href="/2017/11/21/others/过渡平台常见问题处理/" itemprop="url">过渡平台常见问题处理</a></h1>
         
 
         <div class="post-meta">
@@ -1021,7 +1148,7 @@
           过渡平台常见问题处理
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/21/2017/过渡平台常见问题处理/">
+            <a class="btn" href="/2017/11/21/others/过渡平台常见问题处理/">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1397,7 +1524,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

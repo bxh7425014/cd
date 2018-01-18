@@ -1351,14 +1351,7 @@
 <li>云计算</li>
 </ul>
 <p>云计算是一种按使用量计算的模式，这种模式提供可用的、便捷的、按需的网络访问， 进入可配置的计算资源共享池（资源包括网络，服务器，存储，应用软件，服务），这些资源能够被快速提供，只需投入很少的管理工作，或与服务供应商进行很少的交互。“云计算”概念现在被大量运用到生产环境中。</p>
-<h1 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h1><p>附件1 《用户需求确认表》<script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Title:课程审核过程
-平台管理员->教研部主任:提交课程
-教研部主任->多名审课老师:分配课程
-多名审课老师->教研部主任:审核课程，填写结果
-教研部主任->平台管理员:复核课程
-平台管理员->结束:根据复核结果，决定是否上线课程</textarea><textarea id="sequence-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">Title:班级审核过程
-子平台/单位管理员->上层平台管理员:发起开班申请
-上层平台管理员->学员:经过一层审核通过后，学员即可学习</textarea><textarea id="sequence-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 读取课程信息
+<h1 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h1><p>附件1 《用户需求确认表》<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 读取课程信息
 op1=>operation: 平台/单位管理员分配课程给教研部主任
 op2=>operation: 教研部主任分配课程给一名/多名审课老师
 op3=>operation: 审课老师提交审课记录
@@ -1380,7 +1373,7 @@ op5->cond2
 cond2(yes)->op7
 cond2(no)->op6
 op6->e
-op7->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: Start
+op7->e</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: Start
 op=>operation: 子平台管理员输入班级基本信息(名称、周期、简介、班级形式等）
 op1=>operation: 配置班级学员、班主任
 op2=>operation: 配置必修课、选修课
@@ -1392,7 +1385,14 @@ cond(yes)->op2
 op2->op3
 op3->op1
 cond(no)->op1
-op1->e</textarea><textarea id="flowchart-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script></p>
+op1->e</textarea><textarea id="flowchart-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Title:课程审核过程
+平台管理员->教研部主任:提交课程
+教研部主任->多名审课老师:分配课程
+多名审课老师->教研部主任:审核课程，填写结果
+教研部主任->平台管理员:复核课程
+平台管理员->结束:根据复核结果，决定是否上线课程</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">Title:班级审核过程
+子平台/单位管理员->上层平台管理员:发起开班申请
+上层平台管理员->学员:经过一层审核通过后，学员即可学习</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script></p>
 
       
     </div>
@@ -1423,7 +1423,7 @@ op1->e</textarea><textarea id="flowchart-1-options" style="display: none">{"scal
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/21/2017/过渡平台常见问题处理/" rel="next" title="过渡平台常见问题处理">
+              <a href="/2017/11/21/others/过渡平台常见问题处理/" rel="next" title="过渡平台常见问题处理">
                 <i class="fa fa-chevron-left"></i> 过渡平台常见问题处理
               </a>
             
@@ -1510,7 +1510,7 @@ op1->e</textarea><textarea id="flowchart-1-options" style="display: none">{"scal
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
